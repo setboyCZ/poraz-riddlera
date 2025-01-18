@@ -1,0 +1,314 @@
+/* Základní styly */
+body {
+    background-color: #037e37;
+    color: #FFFFFF;
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+#lives {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.question-box {
+    font-size: 1.2rem; /* Nastav velikost textu podle potřeby */
+    margin-bottom: 30px;
+}
+
+.answer-input {
+    width: calc(100% - 120px);
+    padding: 5px;
+    margin-right: 10px;
+    border-radius: 5px;
+    border: none;
+    font-size: 1rem;
+}
+
+.check-answer {
+    background-color: #05ba12;
+    color: #FFFFFF;
+    border: none;
+    padding: 5px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 10px; /* Vytvoří prostor nad tlačítkem */
+    margin-bottom: 20px; /* Vytvoří prostor pod tlačítkem */
+    margin-left: auto; /* Pokud chceš zarovnat tlačítko doprava nebo na střed */
+    margin-right: auto; /* Stejné jako vlevo */
+}
+
+.check-answer:hover {
+    background-color: #c13c17;
+}
+
+#victory {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #0f8f0f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: #70f01f;
+    z-index: 1000;
+    text-align: center;
+    transition: opacity 0.5s ease;
+    opacity: 0;
+    pointer-events: none;
+}
+
+#victory img {
+    max-width: 1000px;
+    margin-top: 20px;
+}
+
+#victory.hidden {
+    display: none;
+}
+
+
+/* Červené pozadí při chybné odpovědi */
+#error-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 0, 0, 0.8);
+    z-index: 999;
+    display: none;
+}
+
+#error-overlay.active {
+    display: block;
+}
+
+#main-headline {
+    font-size: 3rem; /* Velikost textu */
+    font-weight: bold; /* Zvýraznění textu */
+    color: #FFFFFF; /* Barva textu */
+    text-shadow: 2px 2px 5px #05ba12; /* Stín textu pro efekt */
+    margin-bottom: 30px; /* Odsazení pod nadpisem */
+}
+
+#sub-headline {
+    font-size: 1.5rem; /* Velikost textu */
+    font-weight: normal; /* Mírně slabší váha textu než hlavní nadpis */
+    color: #FFFFFF; /* Barva textu */
+    text-shadow: 1px 1px 3px #05ba12; /* Jemný stín pro efekt */
+    margin-top: 10px; /* Odsazení od hlavního nadpisu */
+    margin-bottom: 20px; /* Odsazení pod podnadpisem */
+}
+
+#pow-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0); /* Poloprůhledné pozadí */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease; /* Hladký přechod při zobrazení */
+}
+
+#pow-image img {
+    max-width: 100%; /* Maximální šířka obrázku */
+    max-height: 100%; /* Maximální výška obrázku */
+    border-radius: 10px; /* Kulaté rohy obrázku */
+    
+}
+
+#background-image {
+    position: fixed; /* Fixuje obrázek na pozadí stránky */
+    top: 0;
+    left: 0;
+    width: 300px; /* Výchozí šířka obrázku, můžeš upravit */
+    height: 300px; /* Výchozí výška obrázku, můžeš upravit */
+    background-image: url('crazy.jpg'); /* Cesta k tvému obrázku */
+    background-size: cover; /* Obrázek vyplní celý prostor */
+    background-repeat: no-repeat; /* Zabrání opakování obrázku */
+    z-index: -1; /* Zajistí, že obrázek bude pod všemi ostatními prvky */
+    opacity: 0.7; /* Poloprůhlednost pro efekt */
+}
+
+#give-up-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 1); /* Tmavé pozadí */
+    color: #70f01f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    flex-direction: column;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+}
+
+#give-up-screen.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+#give-up-content img {
+    max-width: 150%;
+    max-height: 300px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+#give-up-content ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: left;
+}
+
+#give-up-content ul li {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+#give-up {
+   
+    z-index: 999; /* Zajistí, že tlačítko je nad všemi ostatními prvky */
+    font-size: 1.2rem; /* Velikost textu tlačítka */
+    padding: 10px 20px; /* Větší tlačítko pro snadnější klikání */
+    background-color: #dc3545; /* Červená barva */
+    color: #000000; /* Barva textu */
+    border: none; /* Bez ohraničení */
+    border-radius: 5px; /* Kulaté rohy */
+    cursor: pointer; /* Změna kurzoru na ukazatel */
+}
+
+
+    
+
+#image-footer img {
+    width: 100%; /* Obrázek vyplní šířku zápatí */
+    height: auto; /* Zachová poměr stran obrázku */
+    display: block; /* Odstraní mezery pod obrázkem způsobené inline prvkem */
+    object-fit: cover; /* Obrázek se přizpůsobí rozměrům zápatí */
+    object-position: center; /* Vycentruje obrázek na střed */
+}
+
+#retry {
+    display: block; /* Zajistí, že tlačítko se zobrazí jako blokový prvek */
+    margin: 20px auto; /* Vycentruje tlačítko horizontálně */
+    padding: 10px 20px; /* Velikost vnitřního odsazení tlačítka */
+    font-size: 1.2rem; /* Velikost textu tlačítka */
+    background-color: #28a745; /* Barva tlačítka (zelená) */
+    color: #000000; /* Barva textu (bílá) */
+    border: none; /* Bez okrajů */
+    border-radius: 5px; /* Kulaté rohy tlačítka */
+    cursor: pointer; /* Změní kurzor na ukazatel */
+    transition: background-color 0.3s ease; /* Hladký přechod při hoveru */
+}
+
+#retry:hover {
+    background-color: #218838; /* Tmavší zelená při najetí myší */
+}
+
+#fight-again {
+    display: block; /* Zajistí, že tlačítko je blokový prvek */
+    margin: 20px auto; /* Vycentruje tlačítko horizontálně */
+    padding: 10px 20px; /* Velikost vnitřního odsazení tlačítka */
+    font-size: 1.2rem; /* Velikost textu */
+    background-color: #000000; /* Barva tlačítka (modrá) */
+    color: #ffffff; /* Barva textu (bílá) */
+    border: none; /* Bez okrajů */
+    border-radius: 5px; /* Kulaté rohy tlačítka */
+    cursor: pointer; /* Změní kurzor na ukazatel */
+    transition: background-color 0.3s ease; /* Hladký přechod při hoveru */
+}
+
+#fight-again:hover {
+    background-color: #dc3545; /* Tmavší modrá při najetí myší */
+}
+
+#question-emojis {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Zajistí, že emotikony neblokují klikání na jiné prvky */
+    z-index: 1002; /* Nad všemi ostatními objekty */
+}
+
+.question-emoji {
+    position: absolute;
+    font-size: 2rem; /* Velikost emotikonu */
+    pointer-events: none; /* Zabrání interakci s emotikony */
+    user-select: none; /* Zabrání označení emotikonů */
+}
+
+#intro-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #006600; /* Poloprůhledné pozadí */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1003; /* Nad všemi ostatními prvky */
+    opacity: 0; /* Skrytý ve výchozím stavu */
+    pointer-events: none;
+    transition: opacity 0.5s ease; /* Hladký přechod */
+}
+
+#intro-image.active {
+    opacity: 1; /* Viditelný obrázek */
+    pointer-events: all;
+}
+
+#intro-image img {
+    max-width: 80%; /* Velikost obrázku vzhledem k šířce obrazovky */
+    max-height: 80%; /* Velikost obrázku vzhledem k výšce obrazovky */
+    animation: scaleUp 3s forwards; /* Animace zvětšení */
+}
+
+@keyframes scaleUp {
+    0% {
+        transform: scale(1.2); /* Počáteční zvětšení */
+    }
+    100% {
+        transform: scale(1); /* Normální velikost */
+    }
+}
+
+.punch-emoji {
+    position: absolute;
+    font-size: 2rem; /* Velikost emotikonu */
+    pointer-events: none; /* Zabrání interakci s emotikony */
+    user-select: none; /* Zabrání označení emotikonů */
+    animation: fadePunch 2s ease forwards; /* Animace zmizení */
+}
+
+@keyframes fadePunch {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(1.5); /* Zvýšení velikosti při zmizení */
+    }
+}

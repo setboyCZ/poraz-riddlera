@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poraz Ridlera</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<header class="text-center my-5">
+    <h1 id="main-headline">DOKÁŽEŠ PORAZIT RIDDLERA?</h1>
+    <h2 id="sub-headline">Odpověz správně na otázky a uber mu všech šest životů</h2>
+</header>
+
+<body>
+
+    <div id="intro-image" class="hidden">
+        <img src="otaznik.png" alt="Intro Image">
+    </div>
+
+    <div id="question-emojis"></div>
+
+    <div id="background-image"></div>
+
+    <!-- Životy hráče -->
+    <div id="lives" class="text-center my-4">
+        ❤️ ❤️ ❤️ ❤️ ❤️ ❤️
+    </div>
+
+    <!-- Sekce s otázkami -->
+    <section class="container">
+        <div class="row">
+            <!-- Otázka 1 -->
+            <div class="col-md-6 question-box">
+                <p>Nemotora, skoro slepý, hlína se mu na nos lepí. Pracuje i v neděli, razí v zemi tunely.</p>
+                <input type="text" class="answer-input" placeholder="Vaše odpověď">
+                <button class="check-answer" data-correct="krtek">ZKONTROLOVAT A UDEŘIT</button>
+            </div>
+
+            <!-- Otázka 2 -->
+            <div class="col-md-6 question-box">
+                <p>Pavlova matka má tři syny. První se jmenuje Pondělí, druhý Úterý. Jak se jmenuje třetí?</p>
+                <input type="text" class="answer-input" placeholder="Vaše odpověď">
+                <button class="check-answer" data-correct="pavel">ZKONTROLOVAT A UDEŘIT</button>
+            </div>
+
+            <div class="col-md-6 question-box">
+                <p>Na jaké zastávce vystupují astrologové?</p>
+                <input type="text" class="answer-input" placeholder="Vaše odpověď">
+                <button class="check-answer" data-correct="na znamení">ZKONTROLOVAT A UDEŘIT</button>
+            </div>
+
+            <div class="col-md-6 question-box">
+                <p>3+3x3-3+3=?</p>
+                <input type="text" class="answer-input" placeholder="Vaše odpověď">
+                <button class="check-answer" data-correct="12">ZKONTROLOVAT A UDEŘIT</button>
+            </div>
+
+            <div class="col-md-6 question-box">
+                <p>Který měsíc má 28 dní?</p>
+                <input type="text" class="answer-input" placeholder="Vaše odpověď">
+                <button class="check-answer" data-correct="každý">ZKONTROLOVAT A UDEŘIT</button>
+            </div>
+
+            <div class="col-md-6 question-box">
+                <p>Patří ti to, ale ostatní to používají víc než ty. Co je to?</p>
+                <input type="text" class="answer-input" placeholder="Vaše odpověď">
+                <button class="check-answer" data-correct="jméno">ZKONTROLOVAT A UDEŘIT</button>
+            </div>
+
+            <!-- Další otázky lze přidat stejným způsobem -->
+        </div>
+    </section>
+
+    <!-- Výhra -->
+    <div id="victory" class="hidden">
+        <div class="victory-screen">
+            <h1>PORAZILI JSTE RIDDLERA!</h1>
+            <img src="mrtvola.jpg" alt="Riddler defeated">
+            
+        </div>
+    </div>
+
+    <!-- Bootstrap and custom JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+
+
+
+<div id="pow-image" class="hidden">
+    <img src="pow.png" alt="POW Image">
+</div>
+
+<!-- Tlačítko pro vzdání souboje -->
+<div class="text-center my-5">
+    <button id="give-up" class="btn btn-danger">Vzdát souboj</button>
+</div>
+
+<!-- Zobrazení správných odpovědí a obrázku -->
+<div id="give-up-screen" class="hidden">
+    <div id="give-up-content">
+        <img src="Riddler.jpg" alt="Game Over Image">
+        <h2>RIDDLER ZVÍTĚZIL</h2>
+        <ul id="correct-answers">
+            <li>Nemotora, skoro slepý... <strong>krtek</strong></li>
+            <li>Pavlova matka má tři syny... <strong>pavel</strong></li>
+            <li>Na jaké zastávce vystupují... <strong>na znamení</strong></li>
+            <li>3+3x3-3+3... <strong>12</strong></li>
+            <li>Který měsíc má... <strong>každý</strong></li>
+            <li>atří ti to, ale ostatní... <strong>jméno</strong></li>
+            <!-- Přidej další odpovědi podle otázek -->
+        </ul>
+        <button id="retry" class="btn btn-primary">Odveta</button>
+    </div>
+</div>
+
+<footer id="image-footer">
+    <img src="women.jpg" alt="Footer Image">
+</footer>
+
+</body>
+</html>
+
+<!-- <button id="fight-again" class="btn btn-primary">Bojovat znovu</button>
